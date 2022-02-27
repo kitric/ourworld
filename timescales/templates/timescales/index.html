@@ -28,7 +28,7 @@
                         {% if geo_eons %}
                         {% for eon in geo_eons %}
                         <li>
-                            {{ eon.name }} eon
+                            <a href="{% url 'eon' eon.id %}">{{ eon.name }} eon</a>
                         </li>
                         {% endfor %}
                         {% else %}
@@ -46,7 +46,7 @@
                         {% if geo_eras %}
                         {% for era in geo_eras %}
                         <li>
-                            {{ era.name }} era
+                            <a href="{% url 'era' era.id %}">{{ era.name }} era</a>
                         </li>
                         {% endfor %}
                         {% else %}
@@ -64,7 +64,7 @@
                         {% if geo_periods %}
                         {% for period in geo_periods %}
                         <li>
-                            {{ period.name }} period
+                            <a href="{% url 'period' period.id %}">{{ period.name }} period</a>
                         </li>
                         {% endfor %}
                         {% else %}
