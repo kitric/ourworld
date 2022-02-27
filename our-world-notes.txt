@@ -1,0 +1,60 @@
+Our World Django Project
+
+Apps:
+[1] Time Scales
+[2] Life
+
+Paths:
+[1]
+/timescales/
+/timescales/eons/<int:eon_id>/
+/timescales/eras/<int:era_id>/
+/timescales/period/<int:period_id>/
+[2]
+/organisms/
+/organisms/species/
+/organisms/species/<int:species_id>
+/organisms/<int:organism_id>
+/points/<int:point_id>
+
+Models:
+[1]
+Eon:
+    - Eras -> Many to Many Field (Era)
+    x Absolute Number -> Integer Field
+    x Summary -> Text Field
+    - Life -> Text Field
+Era:
+    - Periods -> Many to Many Field (Period)
+    x Absolute Number -> Integer Field
+    x Eon Order Number -> Integer Field
+    x Summary -> Text Field
+Period:
+    x Extent (MYA) -> Integer Field 
+    x Duration (MOY) -> Integer Field
+    x Summary -> Text Field
+
+[2]
+Organism Type:
+    x Type -> Choice Field
+    - Summary -> Text Field
+Species:
+    x Name -> Char Field (50)
+    - Scientific Name -> Char Field (100)
+    x Summary -> Text Field 
+    - Characteristics -> Text Field
+Organism:
+    x Type -> Foreign Key (Organism Type)
+    x Period -> Foreign Key (Period)
+    x Species -> Foreign Key (Species)
+    x Name -> Char Field (50)
+    - Scientific Name -> Char Field (100)
+    x Endangered -> Boolean Field
+    - Habitat -> Text Field 
+    - Extent (MYA) -> Integer Field
+    - Points -> Many to Many Field (Point of Interest)
+Point of Interest:
+    x Type -> Choice Field
+    x Name -> Char Field (50)
+    - Location -> Char Field (50)
+    x Summary -> Text Field 
