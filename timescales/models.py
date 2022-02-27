@@ -28,7 +28,6 @@ class GeoEon(models.Model):
     name = models.CharField(max_length=50)
     eras = models.ManyToManyField(GeoEra, blank=True)
     absolute_number = models.IntegerField(default=0)
-    eon_order_number = models.IntegerField(default=0)
     summary = models.TextField()
     life = models.TextField(blank=True, null=True)
 
