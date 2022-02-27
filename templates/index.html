@@ -1,19 +1,27 @@
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Our World{% endblock %}
 
 {% block content %}
-<div class="container feature">
+<div class="feature">
+    <img src="{% static 'img/logo.svg' %}" alt="Logo" width="10%" height="auto">
+    <br>
     <h1>
         Our World
     </h1>
 </div>
+<!--
+// TODO(#1): Rewrite the site index.html page
+//      The current text doesn't make much sense and isn't professional.
+-->
 <div class="container section">
     <h3>
         What is this project?
     </h3>
     <p>
-        Our World is just a hobby project, , an excuse for me to learn more about the world we live in. I find it astonishing how around 65% of this planet is still undiscovered (considering the ocean takes up 71% of the surface), so I want to discover more piece by piece.
+        Our World is just a hobby project, an excuse for me to learn more about the world we live in. I find it astonishing how around 65% of this planet is still undiscovered (considering the ocean takes up 71% of the surface), so I want to discover more piece by piece.
     </p>
 </div>
 <div class="container section">
@@ -21,7 +29,7 @@
         What can I find on this website?
     </h3>
     <p>
-        You can find information on the geological timescales, as well as some organisms containing information when they lived, and what characteristics they have.
+        You can find information on the geological timescales, as well as some organisms containing information on when they lived, and what characteristics they have.
     </p>
 </div>
 {% endblock %}
