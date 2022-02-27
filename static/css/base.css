@@ -16,7 +16,10 @@ body {
     padding: 75px;
 }
 
+.section {
+    padding: 25px;
+}
+
 .footer {
-    background-color: rgb(19, 19, 19) !important;
     margin-top: auto;
 }
