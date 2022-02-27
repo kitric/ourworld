@@ -3,7 +3,77 @@
 {% block title %}Our World - Timescales{% endblock %}
 
 {% block content %}
-<h1>
-    Hello there
-</h1>
+<div class="feature">
+    <h1>
+        Timescales
+    </h1>
+</div>
+<div class="container" id="geological-timescales">
+    <h3>
+        Geological Timescales
+    </h3>
+    <p>
+        // TODO(#2): Write about what the geological timescales are
+        //      Need to identify what they are, does not need to be too detailed as each timescale will have its own description
+    </p>
+    <p>
+        You can read about each time period at there respective pages.
+    </p>
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="card mb-3" style="max-width: auto; height: 100%;">
+                <div class="card-header">Eon</div>
+                <div class="card-body text-dark">
+                    <ul>
+                        {% if geo_eons %}
+                        {% for eon in geo_eons %}
+                        <li>
+                            {{ eon.name }} eon
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        <li>There are no geological Eons yet.</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card mb-3" style="max-width: auto; height: 100%;">
+                <div class="card-header">Era</div>
+                <div class="card-body text-dark">
+                    <ul>
+                        {% if geo_eras %}
+                        {% for era in geo_eras %}
+                        <li>
+                            {{ era.name }} era
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        <li>There are no geological Eras yet.</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4">
+            <div class="card mb-3" style="max-width: auto; height: 100%;">
+                <div class="card-header">Period</div>
+                <div class="card-body text-dark">
+                    <ul>
+                        {% if geo_periods %}
+                        {% for period in geo_periods %}
+                        <li>
+                            {{ period.name }} period
+                        </li>
+                        {% endfor %}
+                        {% else %}
+                        <li>There are no geological Periods yet.</li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
