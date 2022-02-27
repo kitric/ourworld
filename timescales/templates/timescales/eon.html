@@ -1,9 +1,20 @@
-{% extends 'base.html' %}
-
+{% extends 'ts-base.html' %}
 {% block title %}Our World - {{ eon.name }}{% endblock %}
 
-{% block content %}
-<h1>
-    {{ eon.name }}
-</h1>
+{% block geo-content %}
+    <h1>{{ eon.name }}</h1>
+    {% if eon.absolute_number is 1 %}
+        <h6>Earth's {{ eon.absolute_number }}st eon</h6>
+            
+    {% elif eon.absolute_number is 2 %}
+        <h6>Earth's {{ eon.absolute_number }}nd eon</h6>
+
+    {% elif eon.absolute_number is 3 %}
+        <h6>Earth's {{ eon.absolute_number }}rd eon</h6>
+
+    {% else %}
+        <h6>Earth's {{ eon.absolute_number }}th eon</h6>
+    {% endif %}
+
+    <p class="geo-description">{{ eon.summary }}</p>
 {% endblock %}
