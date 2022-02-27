@@ -20,19 +20,28 @@ Paths:
 Models:
 [1]
 Eon:
+    x Name -> Char Field (50)
     - Eras -> Many to Many Field (Era)
     x Absolute Number -> Integer Field
-    x Summary -> Text Field
-    - Life -> Text Field
-Era:
-    - Periods -> Many to Many Field (Period)
     x Absolute Number -> Integer Field
     x Eon Order Number -> Integer Field
     x Summary -> Text Field
+    - Life -> Text Field
+Era:
+    x Name -> Char Field (50)
+    - Periods -> Many to Many Field (Period)
+    x Absolute Number -> Integer Field
+    x Era Order Number -> Integer Field
+    x Summary -> Text Field
+    - Life -> Text Field
 Period:
+    x Name -> Char Field (50)
     x Extent (MYA) -> Integer Field 
     x Duration (MOY) -> Integer Field
     x Summary -> Text Field
+    x Absolute Number -> Integer Field
+    x Period Order Number -> Integer Field
+    - Life -> Text Field
 
 [2]
 Organism Type:
