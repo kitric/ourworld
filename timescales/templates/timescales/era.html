@@ -1,9 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'ts-base.html' %}
 
 {% block title %}Our World - {{ era.name }}{% endblock %}
 
-{% block content %}
+{% block geo-content %}
 <h1>
     {{ era.name }}
 </h1>
+<h6>Era #{{ era.absolute_number }}</h6>
+
+<p class="geo-description">
+    {{ era.summary }}
+</p>
+<br>
+<h3>
+    Life
+</h3>
+<p class="geo-description">
+    {% if era.life %}
+    {{ era.life }}
+    {% else %}
+    There was no life in this era.
+    {% endif %}
+</p>
 {% endblock %}
