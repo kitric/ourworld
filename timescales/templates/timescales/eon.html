@@ -3,19 +3,7 @@
 
 {% block geo-content %}
     <h1>{{ eon.name }}</h1>
-    {% if eon.absolute_number is 1 %}
-        <h6>Earth's {{ eon.absolute_number }}st eon</h6>
-            
-    {% elif eon.absolute_number is 2 %}
-        <h6>Earth's {{ eon.absolute_number }}nd eon</h6>
-
-    {% elif eon.absolute_number is 3 %}
-        <h6>Earth's {{ eon.absolute_number }}rd eon</h6>
-
-    {% else %}
-        <h6>Earth's {{ eon.absolute_number }}th eon</h6>
-    {% endif %}
-
+    <h6>Eon #{{ eon.absolute_number }}</h6>
     <p class="geo-description">{{ eon.summary }}</p>
     <br>
     <h3>Life</h3>   
