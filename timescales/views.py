@@ -17,20 +17,30 @@ def timescales(request):
 def eon_detail(request, eon_id):
     eon = get_object_or_404(models.GeoEon, id=eon_id)
     context = {
+        'active_timescales': 'active',
         'eon': eon
     }
     return render(request, 'timescales/eon.html', context=context)
 
 def era_detail(request, era_id):
     era = get_object_or_404(models.GeoEra, id=era_id)
+    periods = era.periods.all()
+    # using filters to avoid exceptions.
+    next_era = models.GeoEra.objects.filter(id=era_id + 1).first()
+    prev_era = models.GeoEra.objects.filter(id=era_id - 1).first()
     context = {
-        'era': era
+        'active_timescales': 'active',
+        'era': era,
+        'periods': periods,
+        'next': next_era,
+        'prev': prev_era
     }
     return render(request, 'timescales/era.html', context=context)
 
 def period_detail(request, period_id):
     period = get_object_or_404(models.GeoPeriod, id=period_id)
     context = {
+        'active_timescales': 'active',
         'period': period
     }
     return render(request, 'timescales/period.html', context=context)

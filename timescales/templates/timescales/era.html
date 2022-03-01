@@ -11,15 +11,48 @@
 <p class="geo-description">
     {{ era.summary }}
 </p>
-<br>
-<h3>
-    Life
-</h3>
-<p class="geo-description">
-    {% if era.life %}
-    {{ era.life }}
-    {% else %}
-    There was no life in this era.
+<div class="row">
+    <div class="col-sm-6">
+        <div class="card mb-3" style="max-width: auto; height: 100%;">
+            <div class="card-header"><b>Life in the {{ era.name }} era</b></div>
+            <div class="card-body text-dark">
+                <ul>
+                    {% if era.life %}
+                    {{ era.life }}
+                    {% else %}
+                    There was no life in this era.
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <div class="card mb-3" style="max-width: auto; height: 100%;">
+            <div class="card-header"><b>Periods in the {{ era.name }} era</b></div>
+            <div class="card-body text-dark">
+                <ul>
+                    {% if periods %}
+                    {% for period in periods %}
+                    <li><a href="{% url 'period' period.id %}">{{ period.name }}</a></li>
+                    {% endfor %}
+                    {% else %}
+                    <li>There are no periods in this era</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-6">
+    {% if prev %}
+        <center><a href="{% url 'era' prev.id %}" class="btn btn-primary">Previous era</a></center>
     {% endif %}
-</p>
+    </div>
+    <div class="col-sm-6">
+    {% if next %}
+        <center><a href="{% url 'era' next.id %}" class="btn btn-primary">Next era</a></center>
+    {% endif %}
+    </div>
+</div>
 {% endblock %}
