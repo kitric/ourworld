@@ -12,6 +12,7 @@ Paths:
 /timescales/period/<int:period_id>/
 [2]
 /organisms/
+/organisms/s/<str:query>
 /organisms/species/
 /organisms/species/<int:species_id>
 /organisms/<int:organism_id>

@@ -2,16 +2,42 @@
 {% block title %}Our World - {{ eon.name }}{% endblock %}
 
 {% block geo-content %}
-    <h1>{{ eon.name }}</h1>
-    <h6>Eon #{{ eon.absolute_number }}</h6>
-    <p class="geo-description">{{ eon.summary }}</p>
-    <br>
-    <h3>Life</h3>   
-    <p class="geo-description">
-        {% if eon.life %}
-        {{ eon.life }}
-        {% else %}
-        There was no life in this eon.
-        {% endif %}
-    </p>
+<h1>
+    {{ eon.name }} Eon
+</h1>
+<h6>Eon #{{ eon.absolute_number }}</h6>
+<h6>{% if prev %} <a href="{% url 'eon' prev.id %}">Previous</a> {% endif %} {% if prev and next %}|{% endif %} {% if next %} <a href="{% url 'eon' next.id %}">Next</a> {% endif %}</h6>
+
+<p class="geo-description">
+    {{ eon.summary }}
+</p>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <h3>Life in the {{ eon.name }} eon</h3>
+        <p>
+            {% if eon.life %}
+            {{ eon.life }}
+            {% else %}
+            There was no life in this eon.
+            {% endif %}
+        </p>
+    </div>
+    <div class="col-sm-6">
+        <div class="card mb-3" style="max-width: auto; height: auto;">
+            <div class="card-header"><b>Eras in the {{ eon.name }} eon</b></div>
+            <div class="card-body text-dark">
+                <ul>
+                    {% if eras %}
+                    {% for era in eras %}
+                    <li><a href="{% url 'era' era.id %}">{{ era.name }}</a></li>
+                    {% endfor %}
+                    {% else %}
+                    <li>There are no eras in this eon</li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

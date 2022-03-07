@@ -4,30 +4,28 @@
 
 {% block geo-content %}
 <h1>
-    {{ era.name }}
+    {{ era.name }} Era
 </h1>
 <h6>Era #{{ era.absolute_number }}</h6>
+<h6>{% if prev %} <a href="{% url 'era' prev.id %}">Previous</a> {% endif %} {% if prev and next %}|{% endif %} {% if next %} <a href="{% url 'era' next.id %}">Next</a> {% endif %}</h6>
 
 <p class="geo-description">
     {{ era.summary }}
 </p>
+<br>
 <div class="row">
     <div class="col-sm-6">
-        <div class="card mb-3" style="max-width: auto; height: 100%;">
-            <div class="card-header"><b>Life in the {{ era.name }} era</b></div>
-            <div class="card-body text-dark">
-                <ul>
-                    {% if era.life %}
-                    {{ era.life }}
-                    {% else %}
-                    There was no life in this era.
-                    {% endif %}
-                </ul>
-            </div>
-        </div>
+        <h3>Life in the {{ era.name }} era</h3>
+        <p>
+            {% if era.life %}
+            {{ era.life }}
+            {% else %}
+            There was no life in this era.
+            {% endif %}
+        </p>
     </div>
     <div class="col-sm-6">
-        <div class="card mb-3" style="max-width: auto; height: 100%;">
+        <div class="card mb-3" style="max-width: auto; height: auto;">
             <div class="card-header"><b>Periods in the {{ era.name }} era</b></div>
             <div class="card-body text-dark">
                 <ul>
@@ -41,18 +39,6 @@
                 </ul>
             </div>
         </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-sm-6">
-    {% if prev %}
-        <center><a href="{% url 'era' prev.id %}" class="btn btn-primary">Previous era</a></center>
-    {% endif %}
-    </div>
-    <div class="col-sm-6">
-    {% if next %}
-        <center><a href="{% url 'era' next.id %}" class="btn btn-primary">Next era</a></center>
-    {% endif %}
     </div>
 </div>
 {% endblock %}

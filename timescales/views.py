@@ -16,18 +16,23 @@ def timescales(request):
 
 def eon_detail(request, eon_id):
     eon = get_object_or_404(models.GeoEon, id=eon_id)
+    eras = eon.eras.all()
+    next_eon = models.GeoEon.objects.filter(absolute_number=eon.absolute_number + 1).first()
+    prev_eon = models.GeoEon.objects.filter(absolute_number=eon.absolute_number - 1).first()
     context = {
         'active_timescales': 'active',
-        'eon': eon
+        'eon': eon,
+        'eras': eras,
+        'next': next_eon,
+        'prev': prev_eon
     }
     return render(request, 'timescales/eon.html', context=context)
 
 def era_detail(request, era_id):
     era = get_object_or_404(models.GeoEra, id=era_id)
     periods = era.periods.all()
-    # using filters to avoid exceptions.
-    next_era = models.GeoEra.objects.filter(id=era_id + 1).first()
-    prev_era = models.GeoEra.objects.filter(id=era_id - 1).first()
+    next_era = models.GeoEra.objects.filter(absolute_number=era.absolute_number + 1).first()
+    prev_era = models.GeoEra.objects.filter(absolute_number=era.absolute_number - 1).first()
     context = {
         'active_timescales': 'active',
         'era': era,
@@ -39,8 +44,12 @@ def era_detail(request, era_id):
 
 def period_detail(request, period_id):
     period = get_object_or_404(models.GeoPeriod, id=period_id)
+    next_period = models.GeoPeriod.objects.filter(absolute_number=period.absolute_number + 1).first()
+    prev_period = models.GeoPeriod.objects.filter(absolute_number=period.absolute_number - 1).first()
     context = {
         'active_timescales': 'active',
-        'period': period
+        'period': period,
+        'next': next_period,
+        'prev': prev_period
     }
     return render(request, 'timescales/period.html', context=context)

@@ -1,9 +1,44 @@
-{% extends 'base.html' %}
-
+{% extends 'ts-base.html' %}
 {% block title %}Our World - {{ period.name }}{% endblock %}
 
-{% block content %}
+{% block geo-content %}
 <h1>
-    {{ period.name }}
+    {{ period.name }} period
 </h1>
+<h6>Period #{{ period.absolute_number }}</h6>
+<h6>{% if prev %} <a href="{% url 'period' prev.id %}">Previous</a> {% endif %} {% if prev and next %}|{% endif %} {% if next %} <a href="{% url 'period' next.id %}">Next</a> {% endif %}</h6>
+
+<p class="geo-description">
+    {{ period.summary }}
+</p>
+<br>
+<div class="row">
+    <div class="col-sm-6">
+        <h3>Life in the {{ period.name }} period</h3>
+        <p>
+            {% if period.life %}
+            {{ period.life }}
+            {% else %}
+            There was no life in this period.
+            {% endif %}
+        </p>
+    </div>
+    <div class="col-sm-6">
+        <div class="card mb-3" style="max-width: auto; height: auto;">
+            <div class="card-header"><b>Facts about the {{ period.name }} period</b></div>
+            <div class="card-body text-dark">
+                <ul>
+                    <li><b>Extent:</b> {{ period.extent_mya }} mya</li>
+                    <li><b>Duration:</b> {{ period.duration_moy }} moy</li>
+                </ul>
+            </div>
+            <div class="card-header"><b>Organisms in this period</b></div>
+            <div class="card-body text-dark">
+                <ul>
+                    TODO
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}

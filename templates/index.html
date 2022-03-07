@@ -5,8 +5,15 @@
 {% block title %}Our World{% endblock %}
 
 {% block content %}
+<style>
+    img {
+        width: 150px;
+        height: auto;
+    }
+</style>
+
 <div class="feature">
-    <img src="{% static 'img/logo.svg' %}" alt="Logo" width="10%" height="auto">
+    <img src="{% static 'img/logo.svg' %}" alt="Logo">
     <br>
     <h1>
         Our World
@@ -23,13 +30,12 @@
     <p>
         Our World is just a hobby project, an excuse for me to learn more about the world we live in. I find it astonishing how around 65% of this planet is still undiscovered (considering the ocean takes up 71% of the surface), so I want to discover more piece by piece.
     </p>
-</div>
-<div class="container section">
+    <br>
     <h3>
-        What can I find on this website?
+        Contributors
     </h3>
-    <p>
-        You can find information on the geological timescales, as well as some organisms containing information on when they lived, and what characteristics they have.
-    </p>
+    <a href="https://github.com/crxssed7/ourworld/graphs/contributors"><img src="https://contrib.rocks/image?repo=crxssed7/ourworld" alt="Contributors"></a>
+    <br>
+    <br>
 </div>
 {% endblock %}
