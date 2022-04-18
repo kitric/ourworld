@@ -9,7 +9,7 @@
 <h6>{% if prev %} <a href="{% url 'period' prev.id %}">Previous</a> {% endif %} {% if prev and next %}|{% endif %} {% if next %} <a href="{% url 'period' next.id %}">Next</a> {% endif %}</h6>
 
 <p class="geo-description">
-    {{ period.summary }}
+    {{ period.summary | safe }}
 </p>
 <br>
 <div class="row">

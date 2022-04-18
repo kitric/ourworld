@@ -49,14 +49,14 @@ Organism Type:
     x Type -> Choice Field
     - Summary -> Text Field
 Species:
-    x Name -> Char Field (50)
+    x Name -> Char Field (100)
     - Scientific Name -> Char Field (100)
     x Summary -> Text Field 
     - Characteristics -> Text Field
 Organism:
     x Type -> Foreign Key (Organism Type)
-    x Period -> Foreign Key (Period)
-    x Species -> Foreign Key (Species)
+    - Period -> Foreign Key (Period)
+    - Species -> Foreign Key (Species)
     x Name -> Char Field (50)
     - Scientific Name -> Char Field (100)
     x Endangered -> Boolean Field

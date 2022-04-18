@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}Our World - Organisms{% endblock %}
+
+{% block content %}
+<style>
+    .search-result {
+        height: 100%;
+        width: 252px; 
+        max-width: 252px;
+        border-radius: 10px !important;
+        margin: 5px !important;
+    }
+
+    .search-img-container {
+        width: 250px;
+        height: 200px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    .search-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+</style>
+
+<div class="feature">
+    <h1>
+        Organisms
+    </h1>
+</div>
+<div class="container" id="geological-timescales">
+    <p style="text-align: justify;">
+        Search for an organism, we currently have {{ num_of_orgs }} in our database!
+    </p>
+
+    <form class="d-flex" action="{% url 'organisms' %}" method="get">
+        <input name="q" class="form-control me-2" id="search-box" type="search" placeholder="Search" aria-label="Search"
+            value="{{ query }}">
+        <button class="btn btn-dark" type="submit">Search</button>
+    </form>
+
+    <div class="flex">
+        {% for organism in object_list %}
+        <div class="card search-result">
+            <div class="search-img-container">
+                {% if organism.image_primary %}
+                <img src="{{ organism.image_primary }}" alt="organism" class="search-img">
+                {% else %}
+                <img src="{% static 'img/noposter.svg' %}" alt="organism" class="search-img">
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <center><a href="{% url 'organism_detail' organism.id %}" class="link search-link"><h5 class="card-title" style="font-size: smaller;">{{ organism.name }}</h5></a></center>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

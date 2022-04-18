@@ -43,3 +43,10 @@ body {
 .col-sm-6, .col-sm-4 {
     margin-bottom: 25px !important;
 }
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;/* 
+    align-content: center;
+    justify-content: center; */
+}
