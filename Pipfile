@@ -5,6 +5,7 @@ name = "pypi"
 
 [packages]
 djangorestframework = "*"
+dj-secret-settings = "*"
 
 [dev-packages]
 

@@ -8,7 +8,6 @@ class GeoPeriod(models.Model):
     absolute_number = models.IntegerField(default=0, unique=True)
     period_order_number = models.IntegerField(default=0)
     summary = models.TextField()
-    life = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -19,7 +18,6 @@ class GeoEra(models.Model):
     absolute_number = models.IntegerField(default=0, unique=True)
     era_order_number = models.IntegerField(default=0)
     summary = models.TextField()
-    life = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -29,7 +27,6 @@ class GeoEon(models.Model):
     eras = models.ManyToManyField(GeoEra, blank=True)
     absolute_number = models.IntegerField(default=0, unique=True)
     summary = models.TextField()
-    life = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.name
