@@ -7,3 +7,6 @@ This is just a hobby project, an excuse for me to learn more about the world we 
 ## Contributors
 
 ![Contributors](https://contrib.rocks/image?repo=crxssed7/ourworld)
+
+# TODO
+1. Finish writing descriptions for eras and periods
